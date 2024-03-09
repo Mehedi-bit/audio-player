@@ -30,5 +30,7 @@ You can view a live demo of the Audio Pill Player [here](https://audio-player-si
 - Adjust playback speed with the speed toggle.
 
 
+## Screenshots
+![Audio Player](screenshots/screenshot_1.png)
 
 
