@@ -11,7 +11,7 @@ The Audio Pill Player is a React-based application that allows users to play mul
 - Playback controls including play, pause, and adjustable playback speed.
 
 ## Demo
-You can view a live demo of the Audio Pill Player [here](#insert-live-demo-url).
+You can view a live demo of the Audio Pill Player [here](https://audio-player-sigma-three.vercel.app/).
 
 ## Technologies Used
 - React
@@ -31,7 +31,4 @@ You can view a live demo of the Audio Pill Player [here](#insert-live-demo-url).
 
 
 
-
-# live link
-- https://audio-player-sigma-three.vercel.app/
 
