@@ -7,35 +7,39 @@ import Song2 from "./assets/audio/song2.mp3";
 import WaterAudio from "./assets/audio/flowing_water.mp3";
 
 const Audio = () => {
+  // State variables to manage the audio player
   const [selectedAudios, setSelectedAudios] = useState([]);
   const [playheadPosition, setPlayheadPosition] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1);
-  const [timer, setTimer] = useState(0); // 30-second timer
+  const [timer, setTimer] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playSpeed, setPlaySpeed] = useState(false);
 
-  const audioRefs = useRef({}); // Keep track of audio references for each audio
+  // Ref to keep track of audio references for each audio
+  const audioRefs = useRef({});
 
+  // Ref for the interval used for updating the playhead
   const intervalRef = useRef();
+
+  // Log the audioRefs to the console
   console.log(audioRefs);
 
+  // Effect to clear the interval on unmount
   useEffect(() => {
-    // Clear interval on unmount
     return () => clearInterval(intervalRef.current);
   }, []);
 
+  // Effect to update playhead position and handle audio playback
   useEffect(() => {
-    // Update playhead position every second
     if (isPlaying) {
       intervalRef.current = setInterval(() => {
         setTimer((prevTimer) => prevTimer + 1);
-        const newPosition = Math.min(playheadPosition + (playbackRate * 1), 30); // Adjust playhead position based on playbackRate
+        const newPosition = Math.min(playheadPosition + (playbackRate * 1), 30);
         setPlayheadPosition(newPosition);
         if (newPosition === 30) {
           clearInterval(intervalRef.current);
         }
 
-        // Check if the playhead overlaps with any audio track and play/pause the audio
         selectedAudios.forEach((audio) => {
           const audioRef = audioRefs.current[audio.id];
           if (
@@ -49,7 +53,7 @@ const Audio = () => {
             audioRef.pause();
           }
         });
-      }, 1000 / playbackRate); // Adjust interval timing based on playbackRate
+      }, 1000 / playbackRate);
     } else {
       clearInterval(intervalRef.current);
     }
@@ -57,6 +61,7 @@ const Audio = () => {
     return () => clearInterval(intervalRef.current);
   }, [isPlaying, playheadPosition, selectedAudios, playbackRate]);
 
+  // Function to handle audio click and add it to the selectedAudios state
   const handleAudioClick = (audioId, color) => {
     const newAudio = {
       id: audioId,
@@ -75,6 +80,7 @@ const Audio = () => {
     audioRefs.current[audioId] = tempAudio;
   };
 
+  // Function to handle the play button click
   const handlePlayButtonClick = () => {
     setIsPlaying(true);
     setPlayheadPosition(0);
@@ -88,6 +94,7 @@ const Audio = () => {
     });
   };
 
+  // Function to handle the pause button click
   const handlePauseButtonClick = () => {
     setIsPlaying(false);
 
@@ -97,6 +104,7 @@ const Audio = () => {
     });
   };
 
+  // Function to handle the playhead drag
   const handleLineDrag = (event, data) => {
     const newPosition = Math.max(0, Math.min(data.x / 10, 30));
     setPlayheadPosition(newPosition);
@@ -108,6 +116,7 @@ const Audio = () => {
     });
   };
 
+  // Function to handle audio drag and update its position
   const handleAudioDrag = (event, data, audioIndex) => {
     const { x } = data;
     const newPosition = Math.max(0, Math.min(x / 10, 30));
@@ -127,10 +136,12 @@ const Audio = () => {
     });
   };
 
+  // Function to handle the end of an audio track
   const handleAudioEnded = (audioId) => {
     setPlaybackRate(1);
   };
-console.log(playheadPosition)
+
+  // Function to toggle playback speed between 1x and 2x
   const handlePlaybackSpeed = () => {
     switch (playbackRate) {
       case 1:
@@ -176,7 +187,6 @@ console.log(playheadPosition)
           >
             Water flowing
           </div>
-          {/* Add more audio buttons as needed */}
         </div>
         <div className="flex justify-around items-center ">
           <div className="text-white">
