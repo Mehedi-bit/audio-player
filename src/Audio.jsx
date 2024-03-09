@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import Draggable from "react-draggable";
 
-import FeelingAudio from "./assets/audio/Feelings Song - Background Music.mp3";
-import Paniyosa from "./assets/audio/Paniyon Sa Flute - Instrumental.mp3";
-import NoiseOne from "./assets/audio/noise-one.mp3";
-import NoiseTwo from "./assets/audio/noise-two.mp3";
+import NatureAudio from "./assets/audio/nature_sounds.mp3";
+import Song1 from "./assets/audio/song1.mp3";
+import Song2 from "./assets/audio/song2.mp3";
+import WaterAudio from "./assets/audio/flowing_water.mp3";
 
 const Audio = () => {
   const [selectedAudios, setSelectedAudios] = useState([]);
@@ -154,27 +154,27 @@ console.log(playheadPosition)
         <div className="flex  justify-center items-center gap-x-2 text-[0.8rem] md:text-[1rem] text-white font-semibold md:gap-x-8">
           <div
             className="  w-44 md:w-64 h-12 sm:h-16 cursor-pointer bg-[#6C7D47] shadow-md rounded-xl flex_center hover:scale-[1.1] transition-all duration-200"
-            onClick={() => handleAudioClick(FeelingAudio, "#6C7D47")}
+            onClick={() => handleAudioClick(NatureAudio, "#6C7D47")}
           >
-            Feeling Audio
+            Nature calling
           </div>
           <div
             className=" w-44 md:w-64 h-12 sm:h-16 cursor-pointer flex_center bg-[#0E79B2] shadow-md rounded-xl text-center hover:scale-[1.1] transition-all du"
-            onClick={() => handleAudioClick(Paniyosa, "#0E79B2")}
+            onClick={() => handleAudioClick(Song1, "#0E79B2")}
           >
-            Paniyosa
+            Song 1
           </div>
           <div
             className="  w-44 md:w-64 h-12 sm:h-16 cursor-pointer bg-[#BF1363] shadow-md rounded-xl flex_center hover:scale-[1.1] transition-all duration-200"
-            onClick={() => handleAudioClick(NoiseOne, "#BF1363")}
+            onClick={() => handleAudioClick(Song2, "#BF1363")}
           >
-            Noise-one
+            Song 2
           </div>
           <div
             className=" w-44 md:w-64 h-12 sm:h-16 cursor-pointer flex_center bg-[#F39237] shadow-md rounded-xl text-center hover:scale-[1.1] transition-all du"
-            onClick={() => handleAudioClick(NoiseTwo, "#F39237")}
+            onClick={() => handleAudioClick(WaterAudio, "#F39237")}
           >
-            Noise-two
+            Water flowing
           </div>
           {/* Add more audio buttons as needed */}
         </div>
