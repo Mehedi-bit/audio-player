@@ -39,5 +39,5 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 
 ## Contact
-For inquiries, please contact [mh5640001@gmail.com].
+For inquiries, please contact mh5640001@gmail.com
 
