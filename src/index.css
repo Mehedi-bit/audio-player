@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  .flex_start{
+    @apply flex justify-center items-start;
+  }
+  .flex_center{
+    @apply flex justify-center items-center;
+  }
+  .flex_around{
+    @apply flex justify-around items-center;
+  }
+  .flex_between{
+    @apply flex justify-between items-center;
+  }
+  .flex_col_center{
+    @apply flex flex-col justify-center items-center;
+  }
+  .flex_col_between{
+    @apply flex flex-col justify-between items-center;
+  }
+  .flex_col_around{
+    @apply flex flex-col justify-around items-center;
+  }
+
+  body{
+    background-color: black;
+  }
+}
